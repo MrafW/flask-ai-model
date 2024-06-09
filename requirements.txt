@@ -1,0 +1,8 @@
+Flask
+Pillow
+opencv-python
+gradio  
+tensorflow
+gunicorn
+numpy
+google-cloud-storage

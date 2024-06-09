@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Enhancement</title>
+</head>
+<body>
+    <h1>Image Enhancement</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image">
+        <select name="enhancement_type">
+            <option value="clahe">CLAHE</option>
+            <option value="invert">Invert</option>
+            <option value="hp_filter">High Pass Filter</option>
+            <option value="unsharp_mask">Unsharp Masking</option>
+            <option value="hist_eq">Histogram Equalization</option>
+        </select>
+        <input type="submit" value="Process Image">
+    </form>
+
+    {% if image_base64 %}
+        <h2>Processed Image:</h2>
+        <img src="data:image/png;base64,{{ image_base64 }}" alt="Processed Image">
+
+        <h2>Image Metrics:</h2>
+        <p>MSE: {{ mse }}</p>
+        <p>PSNR: {{ psnr }}</p>
+        <p>Max Error: {{ maxerr }}</p>
+        <p>L2 Ratio: {{ l2rat }}</p>
+    {% endif %}
+
+</body>
+</html>
